@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="促销测试" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		  <listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+        </listener>		
+	</listeners>
+	<parameter name="baseUrl" value=""></parameter>
+	<parameter name="loginname" value=""></parameter>
+	<parameter name="password" value=""></parameter>
+	<test name="创建活动，零售商注册" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+		    <!-- 平台创建优惠券 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.promotion.CouponAddStep" />
+			<!-- 平台创建活动 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.promotion.CreateActivityStep" />
+			<!-- 零售商注册 -->
+			<class name="com.ccigmall.auto.test.step.pc.retailer.registered.RetailerRegisteredStep" />
+		</classes>
+	</test>
+	<test name="零售商审核，查看未使用的优惠券" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 零售商审核 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.review.merchant.RetailerReviewStep" />
+			<!-- 零售商查看优惠券 -->
+			<class name="com.ccigmall.auto.test.step.pc.retailer.my.assets.ViewUnusedCoupon" />
+			<!-- 平台创建商品活动 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.promotion.CreateProductActivityStep" />
+
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="wofe运费模板" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter"></listener>
+	</listeners>
+		<listeners>
+		<listener class-name="com.ccigmall.auto.test.listener.TestNGListener"></listener>
+	</listeners>
+	<parameter name="baseUrl"
+		value="http://192.168.1.123:8080/ccigmall-web-platform/"></parameter>
+	<parameter name="loginname" value="platform"></parameter>
+	<parameter name="password" value="aaa123"></parameter>
+	<!-- 平台运费模板管理增加 -->
+	<test name="wofe-创建运费模板" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.logistics.AddFreightTemplateStep">
+			</class>
+		</classes>
+	</test>
+		<!-- 平台运费模板管理修改 -->
+	<test name="wofe平台运费模板管理修改" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.logistics.UpdateFreightTemplateStep">
+			</class>
+		</classes>
+	</test>
+		<!-- 物流商模板管理增加 -->
+	<test name="wofe物流商模板管理增加" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.logistics.AddLogisticsFreightTemplateStep">
+			</class>
+		</classes>
+	</test>
+		<!-- 物流商模板管理修改 -->
+	<test name="物流商模板管理修改" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.logistics.UpdateLogisticsFreightTemplateStep">
+			</class>
+		</classes>
+	</test>
+</suite>

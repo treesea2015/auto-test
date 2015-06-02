@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="类目平台-基础数据管理" preserve-order="true"
+	parallel="tests" thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		  <listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+        </listener>
+		
+	</listeners>
+	<parameter name="baseUrl" value="http://192.168.0.123:8080/ccigmall-category-web/"></parameter>
+	<parameter name="loginname" value="admin"></parameter>
+	<parameter name="password" value="123456"></parameter>
+
+
+		<test name="基础数据管理-区域管理" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 大区添加-->
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.regionmanage.RegionAddStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.regionmanage.RegionEditStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.regionmanage.RegionAssociationStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.regionmanage.RegionDelStep"/>			
+		</classes>
+	</test>
+	
+	<test name="基础数据管理-原产国管理" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 大区添加-->
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.origincountrymanage.OriginCountryAddStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.origincountrymanage.OriginCountryEditStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.origincountrymanage.OriginCountryDelStep"/>
+		</classes>
+	</test>
+	
+	<test name="基础数据管理-计量单位管理" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 计量单位添加-->
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.measure.MeasurementAddStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.measure.MeasurementModifyStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.measure.MeasurementDeleteStep"/>
+		</classes>
+	</test>
+	
+	<test name="基础数据管理-货币单位管理" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 货币单位添加-->
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.currency.CurrencyAddStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.currency.CurrencyModifyStep"/>
+			<class name="com.ccigmall.auto.test.step.pc.category.basedata.currency.CurrencyDeleteStep"/>
+		</classes>
+	</test>
+</suite>

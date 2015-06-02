@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="手机门户wap" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		  <listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+        </listener>		
+	</listeners>
+	<parameter name="baseUrl" value=""></parameter>
+	<parameter name="loginname" value=""></parameter>
+	<parameter name="password" value=""></parameter>
+	<test name="wap下单到收货流程" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- wap下单 -->
+ 			<class name="com.ccigmall.auto.test.step.wap.booking.PlaceOrder_B2C_Step" />
+			<!-- wofe包裹查询 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.order.PackageQueryB2C_Step"/> 
+			<!-- 经销商现货发货 -->
+			<class name="com.ccigmall.auto.test.step.pc.dealer.systemManage.order.SpotOrderDeliverB2C_Step"/> 
+			<!-- wap收货 -->
+			<class name="com.ccigmall.auto.test.step.wap.booking.Receive_B2C_Step"/> 
+		</classes>
+	</test>
+	
+
+		
+</suite>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="回归测试" preserve-order="true" parallel="tests"
+	thread-count="1">
+
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		<listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+		</listener>
+	</listeners>
+
+	<parameter name="baseUrl" value=""></parameter>
+	<parameter name="loginname" value=""></parameter>
+	<parameter name="password" value=""></parameter>
+	<suite-files >
+		<!-- 创建商品及上架 -->
+		<suite-file path="test_modules/product-all.xml"  ></suite-file>
+		<!-- 采购单 -->
+		<suite-file path="test_modules/wofe-purchase-all.xml"  ></suite-file>
+		<!--类目系统-类目管理 -->
+		<suite-file path="test_modules/category-release.xml"  ></suite-file>
+		<!--类目系统-用户管理 -->
+		<suite-file path="test_modules/role-user-manager.xml"  ></suite-file>
+		<!--类目系统-基础数据管理 -->
+		<suite-file path="test_modules/database-manage.xml"  ></suite-file>
+		<!-- wap下单 -->
+		<suite-file path="test_modules/wap-place-order.xml"   ></suite-file>
+		<!-- pad现货订单 -->
+		<suite-file path="test_modules/pad-spot-order-all.xml"  ></suite-file>
+		<!-- pc期货订单 -->
+		<!-- <suite-file path="test_modules/pc-future-order-all.xml"  ></suite-file> -->
+		<!-- pc现货订单 -->
+		<suite-file path="test_modules/pc-spot-order-all.xml"  ></suite-file>
+		<!--wofe-交易账务 -->
+		<suite-file path="test_modules/platform-transaction-query.xml"  ></suite-file>
+		<!--零售商-收货信息 -->
+		<suite-file path="test_modules/retailer-modify-receiveInfo.xml"  ></suite-file>
+		<!--零售商-提交反馈 -->
+		<suite-file path="test_modules/retailer-contact-customer-service.xml"  ></suite-file>
+		<!--零售商-账户中心 -->
+		<suite-file path="test_modules/retailer-user-center.xml"  ></suite-file>
+
+		<!-- pad期货订单 -->
+		<!-- <suite-file path="test_modules/pad-future-order-all.xml"  ></suite-file> -->
+
+		<!--*************************第二部分开始 ******************************** -->
+		<!--零售商-取消订单 -->
+		<suite-file path="test_modules/retailer-cancel-order.xml"  ></suite-file>
+		<!--经销商系统-库存查询 -->
+		<suite-file path="test_modules/dealer-stock-query.xml"  ></suite-file>
+		<!--wofe-修改库存 -->
+		<suite-file path="test_modules/platform-update-stock.xml"  ></suite-file>
+		<!--wofe-锁定库存 -->
+		<suite-file path="test_modules/platform-lock-stock.xml"  ></suite-file>
+		<!--wofe-仓库管理 -->
+		<suite-file path="test_modules/platform-warehouse-manager.xml"  ></suite-file>
+		<!--wofe-物流管理 -->
+		<suite-file path="test_modules/platform-freight-template.xml"  ></suite-file>
+		<!-- wofe修改商品 -->
+		<suite-file path="test_modules/platform-edit-selling-product.xml"  ></suite-file>
+		<!-- 供应商修改商品 -->
+		<suite-file path="test_modules/supplier-ModifyProduct.xml"  ></suite-file>
+		<!--供应商-修改库存 -->
+		<suite-file path="test_modules/supplier-edit-stock.xml"  ></suite-file>
+		<!-- 国内经销商类型供应商-发布商品 -->
+		<suite-file path="test_modules/supplier-createProduct-for-new supplier.xml"  ></suite-file>
+		<!-- 供应商-用户中心 -->
+		<suite-file path="test_modules/user-center.xml"  ></suite-file>
+
+		<!-- 供应商-已卖出货品页面查看 -->
+		<suite-file path="test_modules/supplier-soldgoods.xml"  ></suite-file>
+		<!--*************************第三部分开始 ******************************** -->
+		<!--经销商系统-用户中心 -->
+		<suite-file path="test_modules/dealer-usercenter.xml"  ></suite-file>
+
+		<!--经销商系统-联系客服 -->
+		<suite-file path="test_modules/dealer-service.xml"  ></suite-file>
+		<!-- 创建优惠券、活动、零售商注册、审核、查看优惠券 -->
+		<suite-file path="test_modules/promotion.xml"  ></suite-file>
+
+	</suite-files>
+</suite>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="采购单管理" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		<listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+		</listener>
+	</listeners>
+	<parameter name="baseUrl" value=""></parameter>
+	<parameter name="loginname" value=""></parameter>
+	<parameter name="password" value=""></parameter>
+
+
+	<test name="添加采购单" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.purchase.AddPurchaseStep" />
+		</classes>
+	</test>
+	<test name="修改采购单" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.purchase.ModifyPurchaseStep" />
+		</classes>
+	</test>
+
+</suite>

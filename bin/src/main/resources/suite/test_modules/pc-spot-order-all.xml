@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="pc现货交易流程" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		  <listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+        </listener>		
+	</listeners>
+
+	<parameter name="baseUrl" value=""></parameter>
+	<parameter name="loginname" value=""></parameter>
+	<parameter name="password" value=""></parameter>
+	<!-- 现货交易流程 -->
+	<test name="pc现货交易流程" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+		    <!-- 零售商现货下单 -->
+			<class name="com.ccigmall.auto.test.step.pc.retailer.booking.SpotBookingStep" />
+			<!-- wofe包裹查询 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.order.PackageQueryStep"/> 
+			<!-- 经销商现货发货 -->
+			<class name="com.ccigmall.auto.test.step.pc.dealer.systemManage.order.SpotOrderDeliverStep"/> 
+			<!-- 零售商现货收货 -->
+			<class name="com.ccigmall.auto.test.step.pc.retailer.my.ordercenter.SpotReceiptStep"/>
+			<!-- 零售商评价 -->
+			<class name="com.ccigmall.auto.test.step.pc.retailer.my.ordercenter.CommentStep"/>
+		
+		</classes>
+	</test>
+	<test name="wofe评价列表回复" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<class name="com.ccigmall.auto.test.step.pc.platform.seller.evaluation.EvaluationManageStep">
+			</class>
+		</classes>
+	</test>
+	
+	
+	
+	
+</suite>

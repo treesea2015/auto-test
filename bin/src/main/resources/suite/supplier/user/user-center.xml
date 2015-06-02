@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="供应商用户中心" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		  <listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+        </listener>		
+	</listeners>
+	<parameter name="baseUrl"
+		value="http://192.168.0.125:8080/"></parameter>
+	<parameter name="loginname" value="zhaigys"></parameter>
+	<parameter name="password" value="123456"></parameter>
+
+	<test name="供应商注册" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+		<!-- 供应商注册 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.register.SupplierRegisterStep" />
+		<!-- 供应商审核 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.review.merchant.SupplierReviewStep" />
+		</classes>
+	</test>
+	
+	<test name="供应商用户管理" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!--添加修改角色 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.user.authority.AuthorityManagerStep" />
+			<!--添加修改用户 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.user.usermanager.UserManagerStep" />
+			<!--添加修改子供应商 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.user.subsupplier.SubSupplierStep" />
+			<!-- 子供应商审核 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.review.merchant.SupplierReviewStep" />
+		</classes>
+	</test>
+	
+	<test name="供应商品牌" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 品牌添加 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.seller.brand.BrandManagementStep" />
+			<!-- wofe品牌审核 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.review.brand.BrandAuditStep" />
+			<!-- 品牌管理操作 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.seller.brand.BrandManagSubSupStep" />
+			<!-- 品牌删除操作 -->	
+			<class name="com.ccigmall.auto.test.step.pc.supplier.seller.brand.DelBrandManagementStep" />
+		</classes>
+		
+		</test>
+		<test name="供应商用户删除" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!--删除子供应商 -->	 
+			<class name="com.ccigmall.auto.test.step.pc.supplier.user.subsupplier.SubSupplierDelStep" />
+			<!--删除用户 -->	 
+			<class name="com.ccigmall.auto.test.step.pc.supplier.user.usermanager.UserDelStep" />
+			<!--删除角色 -->	
+			<class name="com.ccigmall.auto.test.step.pc.supplier.user.authority.AuthorityDelStep" />
+		</classes>
+	</test>
+		
+</suite>

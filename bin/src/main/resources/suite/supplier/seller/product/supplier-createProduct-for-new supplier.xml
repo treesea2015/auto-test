@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="新创建的供应商创建商品" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter">
+		</listener>
+		  <listener class-name="com.ccigmall.auto.test.listener.TestNGListener">
+        </listener>		
+	</listeners>
+	<parameter name="baseUrl"
+		value="http://192.168.1.125:8080/ccigmall-web-supplier/"></parameter>
+	<parameter name="loginname" value="aaa"></parameter>
+	<parameter name="password" value="aaa123"></parameter>
+
+	<test name="新创建的供应商创建商品" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+			<!-- 国内供应商注册 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.register.SupplierRegisterNewSupStep" />
+			<!-- 供应商审核 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.review.merchant.SupplierReviewStep" />
+			<!-- 添加品牌 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.seller.brand.BrandManForNewSupStep" />
+			<!-- 品牌审核 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.review.brand.BrandAuditStep" />
+			<!-- 供应商创建商品 -->
+			<class name="com.ccigmall.auto.test.step.pc.supplier.seller.product.CreateProductForNewSupStep" />		
+		</classes>
+	</test>
+</suite>

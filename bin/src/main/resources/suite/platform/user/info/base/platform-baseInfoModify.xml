@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="platform wofe用户中心" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	<listeners>
+		<listener class-name="com.ccigmall.auto.test.reporter.HTMLReporter"></listener>
+	</listeners>
+	<parameter name="baseUrl"
+		value="http://192.168.1.123:8080/ccigmall-web-platform/"></parameter>
+	<parameter name="loginname" value="platform"></parameter>
+	<parameter name="password" value="aaa123"></parameter>
+
+	<test name="信息管理" preserve-order="true" thread-count="1" verbose="1">
+		<classes>
+		<!-- 信息管理修改 -->
+			<class	name="com.ccigmall.auto.test.step.pc.platform.user.info.base.BaseInfoModifyStep"/>
+	  		<!-- 权限管理 添加新角色 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.info.authority.RoleAddStep"/>
+			<!-- 用户管理 添加新用户 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.info.usermanage.UserAddStep"/>
+			<!-- 用户管理 修改新用户 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.info.usermanage.UserModifyStep"/>
+			<!-- 用户管理 删除新用户 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.info.usermanage.UserDelStep"/>
+			<!-- 权限管理 修改角色 -->
+			<class name="com.ccigmall.auto.test.step.pc.platform.user.info.authority.RoleModifyStep"/> 
+			<!-- 权限管理 删除角色 -->
+ 			<class name="com.ccigmall.auto.test.step.pc.platform.user.info.authority.RoleDelStep"/>
+		</classes>
+	</test>
+</suite>
